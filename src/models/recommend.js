@@ -6,16 +6,20 @@ export default {
         recommend:[]
     },
     reducers:{
-        setrecom(state,action){
-            console.log('run')
+        setrecom(state,{payload}){
+            console.log(payload)
+            let _state = JSON.parse(JSON.stringify(state))
+            _state.recommend = payload.playlists
+            return _state
         }
     },
     effects:{
         *getrecomlist({payload},{call,put}){
           const res =  yield call(apis.recommend)
-          console.log(res)
+          
           yield put({
-              type:'setrecom'
+              type:'setrecom',
+              payload:res.data
           })
         }
     }

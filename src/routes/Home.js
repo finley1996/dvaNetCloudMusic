@@ -120,5 +120,10 @@ class Home extends React.Component {
     );
   }
 }
+function mapstate2props(state){
+  return {
+    playlist:state.home.recommend
+  }
+}
 
-export default connect()(Home)
+export default connect(mapstate2props)(Home)

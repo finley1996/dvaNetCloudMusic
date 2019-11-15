@@ -6,5 +6,5 @@ export function query() {
 // 获取每日推荐歌单
 
 export function recommend(){
-  return request(pox+'/top/playlist/highquality')
+  return request(pox+'/top/playlist/highquality?limit=6')
 }
