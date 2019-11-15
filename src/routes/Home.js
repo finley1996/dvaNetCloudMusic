@@ -10,9 +10,15 @@ class Home extends React.Component {
       fullScreen: true,
     };
   }
+  componentDidMount(){
+    this.props.dispatch(
+      {
+        type:'home/getrecomlist'
+      }
+    )
+  }
   render() {
     console.log(this.props);
-
     return (
       <div>
         <div style={this.state.fullScreen ? { position: 'fixed', height: '100%', width: '100%', top: 0 } : { height: 400 }}>

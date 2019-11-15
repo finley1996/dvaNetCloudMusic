@@ -1,5 +1,12 @@
 {
       "extraBabelPlugins": [
    ["import", { "libraryName": "antd-mobile", "libraryDirectory": "es", "style": "css" }]
-  ]
+  ],
+  "proxy": {
+  "/api": {
+    "target": "http://106.12.79.128:666",
+    "changeOrigin":true,
+    "pathRewrite":{"^/api":""}
+  }
+  }
 }
