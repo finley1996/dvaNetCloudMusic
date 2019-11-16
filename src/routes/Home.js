@@ -2,6 +2,7 @@ import { TabBar } from 'antd-mobile';
 import React from 'react';
 import { connect } from 'dva'
 import Recommend from '../components/recommend'
+
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -76,7 +77,6 @@ class Home extends React.Component {
               }}
               data-seed="logId1"
             >
-              {2}
             </TabBar.Item>
             <TabBar.Item
               icon={
