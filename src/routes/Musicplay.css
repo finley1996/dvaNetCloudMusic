@@ -1,0 +1,57 @@
+
+.player{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+@keyframes circle{
+    from {
+        -webkit-transform: rotate(0deg);
+      }
+      to {
+        -webkit-transform: rotate(360deg);
+      }
+}
+.musicpic{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow:0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    animation: circle 8s linear infinite;
+}
+.musicpicnocircle{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow:0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.musicbox
+{
+    text-align: center;
+}
+.commonli{
+    width: 100%;
+    padding: 7px;
+    margin: 10px;
+    box-shadow:0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.user{
+    color: tomato;
+}
+.commonbox{
+    padding: 5px;
+}
+.iconpic{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    z-index: 10;
+    top: 80px;
+    left: 80px;
+}
+.musicpicbox{
+    width: 200px;
+    height: 200px;
+    position: relative;
+    display: inline-block;
+}

@@ -1,6 +1,7 @@
 import { TabBar } from 'antd-mobile';
 import React from 'react';
 import { connect } from 'dva'
+import Recommend from '../components/recommend'
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -10,15 +11,8 @@ class Home extends React.Component {
       fullScreen: true,
     };
   }
-  componentDidMount(){
-    this.props.dispatch(
-      {
-        type:'home/getrecomlist'
-      }
-    )
-  }
+  
   render() {
-    console.log(this.props);
     return (
       <div>
         <div style={this.state.fullScreen ? { position: 'fixed', height: '100%', width: '100%', top: 0 } : { height: 400 }}>
@@ -53,7 +47,7 @@ class Home extends React.Component {
               }}
               data-seed="logId"
             >
-              {1}
+              {<Recommend />}
             </TabBar.Item>
             <TabBar.Item
               icon={
@@ -120,10 +114,6 @@ class Home extends React.Component {
     );
   }
 }
-function mapstate2props(state){
-  return {
-    playlist:state.home.recommend
-  }
-}
 
-export default connect(mapstate2props)(Home)
+
+export default connect()(Home)
