@@ -1,0 +1,12 @@
+.subtitle {
+  color: #666;
+  padding: 4px 0 4px 12px;
+  font-size: 14px;
+  font-weight: 100;
+  background-color: #eeeff0;
+  margin: 0;
+}
+
+.comment{
+  background: yellow;
+}

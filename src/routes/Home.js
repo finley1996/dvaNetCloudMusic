@@ -11,7 +11,6 @@ class Home extends React.Component {
       fullScreen: true,
     };
   }
-  
   render() {
     return (
       <div>
@@ -114,6 +113,5 @@ class Home extends React.Component {
     );
   }
 }
-
 
 export default connect()(Home)

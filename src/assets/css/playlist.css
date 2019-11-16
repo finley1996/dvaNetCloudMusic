@@ -1,0 +1,100 @@
+.info {
+  background-image: url(http://p1.music.126.net/vQf54t-uReL0Cus0pTxkVA==/109951163296319391.jpg);
+  height: 261px;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.info h4 {
+  font-size: 22px;
+  color: black;
+  margin: 0;
+  margin-bottom: 25px;
+}
+
+.info span {
+  font-size: 12px;
+  color: #999;
+  background-color: wheat;
+}
+
+.info p {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.info a {
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.subtitle {
+  color: #666;
+  padding: 4px 0 4px 12px;
+  font-size: 14px;
+  font-weight: 100;
+  background-color: #eeeff0;
+  margin: 0;
+}
+
+.pslist {}
+
+.song {
+  display: flex;
+  height: 54px;
+}
+
+.order {
+  text-align: center;
+  width: 40px;
+  line-height: 54px;
+  font-size: 17px;
+  color: #999;
+}
+
+.right {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+}
+
+.sinfo {
+  width: 220px;
+  margin: 5px 0;
+}
+
+.sinfoName {
+  font-size: 17px;
+  height: 25px;
+  line-height: 25px;
+  color: #333;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.sinfoDis {
+  font-size: 12px;
+  color: #888;
+  height: 18px;
+  line-height: 18px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.gn {
+  width: 42px;
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  margin: 10px 10px 0 6px;
+}

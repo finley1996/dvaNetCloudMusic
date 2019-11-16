@@ -33,15 +33,26 @@ class Recommend extends React.Component {
             pathname: '/musicplay'
         }))
     }
+    //跳转到歌单列表页面
+    jump(id) {
+        localStorage.setItem('listid', id)
+        // this.props.history.push('/playlist')
+        this.props.dispatch(routerRedux.push({
+            pathname: '/playlist'
+        }))
+    }
     render() {
-        console.log(this.props);
+        console.log(this.props,'----------');
 
         const { playlist, musiclist } = this.props
         const data1 = playlist.map((item) => ({
+            id: item.id,
             icon: item.coverImgUrl,
-            dec:item.copywriter
-          }));
-          
+            dec: item.copywriter
+        }));
+
+        console.log(data1, "data1")
+
         return (
             <div className={styles.container}>
                 <Lunbotu />
@@ -61,26 +72,25 @@ class Recommend extends React.Component {
                     <Grid data={data1}
                         columnNum={3}
                         renderItem={dataItem => (
-                            <div style={{ padding: '1px' }}>
+                            <div style={{ padding: '1px' }} onClick={() => this.jump(dataItem.id)}>
                                 <img src={dataItem.icon} style={{ width: '90px', height: '90px' }} alt="" />
-                                <div style={{ color: '#888', fontSize: '10px'}}>
-                                <span>{dataItem.dec}</span>
+                                <div style={{ color: '#888', fontSize: '10px' }}>
+                                    <span>{dataItem.dec}</span>
                                 </div>
                             </div>
                         )}
                     />
                 </div>
-                <br/>
+                <br />
                 <div>
                     <h3>推荐音乐</h3>
                     <ul>
                         {musiclist.map(item => {
                             return (
-                                <div key={item.id} onClick={()=>this.getmusic(item.id)}>
+                                <div key={item.id} onClick={() => this.getmusic(item.id)}>
                                     <WhiteSpace size="lg" />
                                     <Card full>
                                         <Card.Header
-
                                             thumb={item.song.album.picUrl}
                                             extra={<span>{item.name}</span>}
                                         />
