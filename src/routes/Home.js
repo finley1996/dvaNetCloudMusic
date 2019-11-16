@@ -1,6 +1,7 @@
 import { TabBar } from 'antd-mobile';
 import React from 'react';
 import { connect } from 'dva'
+
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -10,15 +11,24 @@ class Home extends React.Component {
       fullScreen: true,
     };
   }
-  componentDidMount(){
+  componentDidMount() {
     this.props.dispatch(
       {
-        type:'home/getrecomlist'
+        type: 'home/getrecomlist'
       }
     )
   }
+  jump = () => {
+    // console.log(this.props, "home-detail")
+    let id = 1997190595;
+    // this.props.dispatch({
+    //   type: "playlist/getplist",
+    //   payload: id
+    // })
+    localStorage.setItem('listid',id)
+    this.props.history.push('/playlist')
+  }
   render() {
-    console.log(this.props);
     return (
       <div>
         <div style={this.state.fullScreen ? { position: 'fixed', height: '100%', width: '100%', top: 0 } : { height: 400 }}>
@@ -53,7 +63,7 @@ class Home extends React.Component {
               }}
               data-seed="logId"
             >
-              {1}
+              {<button onClick={this.jump}>跳转</button>}
             </TabBar.Item>
             <TabBar.Item
               icon={
@@ -120,9 +130,9 @@ class Home extends React.Component {
     );
   }
 }
-function mapstate2props(state){
+function mapstate2props(state) {
   return {
-    playlist:state.home.recommend
+    playlist: state.home.recommend
   }
 }
 

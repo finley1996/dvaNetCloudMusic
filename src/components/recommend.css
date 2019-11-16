@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+img{
+    height: 50px;
+    width: 50px;
+}
+ul{
+    list-style: none;
+}
+
+.palyli{
+    float: left;
+    width: 100px;
+    height: 130px;
+    margin: 5px;
+}
+.container{
+  background: white;
+    display: flex;
+    flex-direction: column;
+}
