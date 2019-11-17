@@ -8,9 +8,10 @@ export default {
       // console.log('qqqqqqqq',payload)
       state.name = payload.playlist.name;
       state.bg = payload.playlist.coverImgUrl;
-      state.tags = JSON.parse(JSON.stringify(payload.playlist.tags))
+      state.tags = payload.playlist.tags.join(" ")
+      state.des = payload.playlist.description;
       // console.log("8@8282",payload.playlist.coverImgUrl)
-      // console.log(state,"-1-1-")
+      console.log(state,"-1-1-")
       let _state = JSON.parse(JSON.stringify(state))
       return _state
     }

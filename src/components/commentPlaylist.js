@@ -2,8 +2,6 @@ import React from "react"
 import { connect } from "dva"
 import { Card, WhiteSpace } from "antd-mobile"
 
-import style from "../assets/css/commentPlaylist.css"
-
 class CommentPlayList extends React.Component {
   componentWillMount() {
     const id = this.props.id;
@@ -20,8 +18,7 @@ class CommentPlayList extends React.Component {
     let comments = this.props.hotComments
     return (
       <div>
-        <WhiteSpace size="lg" />
-        <h3 className={style.subtitle}>精彩评论</h3>
+        <WhiteSpace size="" />
         {comments.map((item, index) => <Card full key={index}>
           <Card.Header
             thumb={item.user.avatarUrl}

@@ -25,6 +25,7 @@
 .right {
   display: flex;
   flex: 1;
+  padding-left: 10px;
   justify-content: space-between;
   border-bottom: 1px solid #eee;
 }

@@ -16,9 +16,12 @@ class PlayListInfo extends React.Component {
     let obj = this.props.plinfo
     // console.log("obj--------", obj)
     return (
-      <div className={style.info}>
-        <img src={obj.bg} alt=""/>
-        <h2>{obj.name}</h2>
+      <div className={style.container}>
+        <div className={style.info}>
+          <img src={obj.bg} alt="" />
+          <h2>{obj.name}</h2>
+          <h3>简介：{obj.tags}</h3>
+        </div>
       </div>
     )
   }

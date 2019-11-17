@@ -35,16 +35,9 @@ class PlayList extends React.Component {
     let songlist = this.props.plist;
     return (
       <div>
-        {/* <div className={styles.info}>
-          <h4>[VIP专享]一周新歌推荐</h4>
-          <span>每周六更新</span>
-          <p>每周VIP专享歌曲，编辑精选推荐。</p>
-          <a>开启网易云音乐会员，即可畅享千万付费歌曲试听下载特权和无损音质。>
-          </a>
-        </div> */}
         <PlayListInfo id={id} />
         <h3 className={styles.subtitle}>歌曲列表</h3>
-        <div className={styles.plist}>
+        <div>
           {songlist.map((item, index) => <a key={item.id} className={styles.song} onClick={() => this.getmusic(item.id)}>
             <div className={styles.order}>{index}</div>
             <div className={styles.right}>
@@ -52,10 +45,13 @@ class PlayList extends React.Component {
                 <div className={styles.sinfoName}>{item.name}</div>
                 <div className={styles.sinfoDis}>{item.ar[0].name}</div>
               </div>
-              <span className={styles.gn}>{' ▷'}</span>
+              <div className={styles.gn}>
+                <span>{' ▷'}</span>
+              </div>
             </div>
           </a>)}
         </div>
+        <h3 className={styles.subtitle}>精彩评论</h3>
         <CommentPlayList id={id} />
       </div>
     )
