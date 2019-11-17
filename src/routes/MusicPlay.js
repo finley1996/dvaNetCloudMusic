@@ -30,7 +30,7 @@ class MusicPlay extends React.Component {
         this.setState({
             isplay: !this.state.isplay
         })
-        console.log(this.refs)
+        // console.log(this.refs)
         if (this.state.isplay) {
             this.refs.player.pause()
         } else {
@@ -38,9 +38,9 @@ class MusicPlay extends React.Component {
         }
     }
     render() {
-        console.log(this.props);
-        const { musicdetail, playdetail, hotcomments } = this.props
-            ;
+        // console.log(this.props);
+        const { musicdetail, playdetail, hotcomments } = this.props;
+            
         let icomurl = this.state.isplay ? require('../assets/icon/play.png') : require('../assets/icon/stop.png')
         let circlecls = this.state.isplay ? styles.musicpic : styles.musicpicnocircle
         return (

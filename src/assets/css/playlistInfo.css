@@ -1,20 +1,21 @@
 .info{
   height: 220px;
-  width: 320px;
+  width: 100%;
+  overflow: hidden;;
   box-sizing: border-box;
   position: relative;
+  background-color: linen;
   padding: 30px;
 }
 
 .info img{
-  display: block;    
-  width: 320px;
+  display: block;
+  width: min-content;
   height: 220px;
-  opacity: 0.7;
+  opacity: 0.5;
   position: absolute;
   left: 0;
   top: 0;
-  z-index:-1;
 }
 
 .info h2{

@@ -42,7 +42,7 @@ class Recommend extends React.Component {
         }))
     }
     render() {
-        console.log(this.props,'----------');
+        // console.log(this.props,'----------');
 
         const { playlist, musiclist } = this.props
         const data1 = playlist.map((item) => ({
@@ -51,7 +51,7 @@ class Recommend extends React.Component {
             dec: item.copywriter
         }));
 
-        console.log(data1, "data1")
+        // console.log(data1, "data1")
 
         return (
             <div className={styles.container}>
