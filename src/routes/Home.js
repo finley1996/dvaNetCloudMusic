@@ -1,7 +1,10 @@
 import { TabBar } from 'antd-mobile';
 import React from 'react';
 import { connect } from 'dva'
+import SearchPage from "../components/searchPage"
 import Recommend from '../components/recommend'
+/* import RadioPage from "../components/radioPage" */
+
 import Listview from '../components/liveview'
 class Home extends React.Component {
   constructor(props) {
@@ -49,6 +52,7 @@ class Home extends React.Component {
               data-seed="logId"
             >
               {<Recommend />}
+
             </TabBar.Item>
             <TabBar.Item
               icon={
@@ -107,7 +111,8 @@ class Home extends React.Component {
                 });
               }}
             >
-              {3}
+              <SearchPage></SearchPage>
+            {/*   <RadioPage></RadioPage> */}
             </TabBar.Item>
             <TabBar.Item
               icon={

@@ -1,0 +1,122 @@
+ul {
+  margin: 0 0 0 0px;
+  padding: 0 10px;
+
+}
+
+li.searchList {
+  width: 100%;
+  height: 55px;
+  border-top: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.SearchBox {
+  padding-left: 10px;
+}
+
+.hotList {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 11px 0;
+}
+
+.a_hotList {
+  padding: 0px 14px;
+  border: 1px solid #d3d4da;
+  border-radius: 32px;
+  color: #000;
+  line-height: 32px;
+  margin: 0 8px 8px 0;
+}
+
+.a_box {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+p {
+  margin: 0;
+}
+
+.playBtn {
+  /*  display: block;
+    width: 20px;
+    height: 20px;
+    background: slategray; */
+  margin-right: 10px;
+}
+
+.musicName {
+  color: #507daf;
+  margin-bottom: 5px;
+}
+
+.singer {
+  color: #888;
+}
+
+.singer>span {
+    width: 18px;
+  height: 12px;
+  font-size: 2px;
+  color: red;
+  border: 1px solid red;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+hr {
+  background-color: rgba(255, 255, 255, 0.692);
+  margin: 10px 0 20px 0;
+}
+
+.historyList {
+  /* display: flex;
+  justify-content: space-between; */
+ 
+  border-bottom: 1px solid #ccc;
+  list-style-type: square;
+}
+
+.historyList>a {
+  display: inline-block;
+  width: 80%;
+  line-height: 34px;
+  color: #888;
+}
+
+.historyList>span {
+
+  color: #888;
+  margin-right: 10px;
+}
+
+.searchText {
+  background: none !important;
+
+}
+
+.am-search-value {
+  border-radius: 20px;
+}
+
+.am-search-synthetic-ph {
+  text-align: left;
+}
+
+.clock_history_box>span {
+  margin: 0 0 0 0;
+}
+.playBtn{
+    margin: 9px 4px 0 0;
+}
+.delBtn{
+  margin: 9px 4px 0 0;
+}
+.history_clock_icon{
+  line-height: 34px;
+  margin: 0 5px 0 0 ;
+}

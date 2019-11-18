@@ -2,4 +2,9 @@
 html, body, :global(#root) {
   height: 100%;
 }
-
+.musicList>ul>li{
+  list-style: none;
+}
+i{
+  font-style: normal;
+}
