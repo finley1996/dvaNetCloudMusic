@@ -24,6 +24,8 @@
     height: 200px;
     border-radius: 50%;
     box-shadow:0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    animation: circle 8s linear infinite;
+    animation-play-state:paused;
 }
 .musicbox
 {
@@ -54,4 +56,11 @@
     height: 200px;
     position: relative;
     display: inline-block;
+}
+.backpic{
+    float: left;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    left: 5px;
 }

@@ -10,7 +10,8 @@ export default {
         musicid:'',
         musicdetail:{},
         musicalbum:[],
-        simisonglist:[]
+        simisonglist:[],
+        singename:''
     },
     reducers:{
         setrecom(state,{payload}){
@@ -52,7 +53,12 @@ export default {
             let _state = JSON.parse(JSON.stringify(state))
             _state.simisonglist = payload
             return _state
-        }
+        },
+        setsingername(state,{payload}){
+            let _state = JSON.parse(JSON.stringify(state))
+            _state.singername = payload
+            return _state
+        },
     },
     effects:{
         *getrecomlist({payload},{call,put}){
@@ -79,10 +85,17 @@ export default {
           },
           *getmusicdetail({payload},{call,put}){
               const res = yield call(apis.musicdetail,payload)
+              console.log(res);
+              
               yield put({
                   type:'setmusicdetill',
-                  payload:res.data.songs[0].al
+                  payload:res.data.songs[0].al 
               })
+              yield put({
+                type:'setsingername',
+                payload:res.data.songs[0].ar[0].name
+            })
+              
           },
           //获取歌曲评论
           *getmusicalbum({payload},{call,put}){

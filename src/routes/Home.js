@@ -114,7 +114,7 @@ class Home extends React.Component {
                 <div style={{
                   width: '22px',
                   height: '22px',
-                  background: 'url(' + require('../assets/icon/search.png') + ') center center /  21px 21px no-repeat'
+                  background: 'url(' + require('../assets/icon/MV.png') + ') center center /  21px 21px no-repeat'
                 }}
                 />
               }
@@ -122,7 +122,7 @@ class Home extends React.Component {
                 <div style={{
                   width: '22px',
                   height: '22px',
-                  background: 'url(' + require('../assets/icon/search2.png') + ') center center /  21px 21px no-repeat'
+                  background: 'url(' + require('../assets/icon/MV1.png') + ') center center /  21px 21px no-repeat'
                 }}
                 />
               }

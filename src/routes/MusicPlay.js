@@ -13,7 +13,7 @@ class MusicPlay extends React.Component {
             isplay: true
         }
     }
-    changemp3=()=>{
+    changemp3 = () => {
         let id = localStorage.getItem('songid')
         this.props.dispatch({
             type: 'home/getmusicurl',
@@ -33,10 +33,10 @@ class MusicPlay extends React.Component {
         })
     }
     componentWillMount() {
-       this.changemp3()
+        this.changemp3()
     }
-    setmp3id=(id)=>{
-        localStorage.setItem('songid',id)
+    setmp3id = (id) => {
+        localStorage.setItem('songid', id)
         this.changemp3()
     }
     player = () => {
@@ -49,9 +49,12 @@ class MusicPlay extends React.Component {
             this.refs.player.play()
         }
     }
+    back=()=>{
+        this.props.history.go(-1)
+    }
     render() {
         console.log(this.props);
-        const { musicdetail, playdetail, hotcomments,simisonglist } = this.props
+        const { musicdetail, playdetail, hotcomments, simisonglist, singername } = this.props
             ;
         let icomurl = this.state.isplay ? require('../assets/icon/play.png') : require('../assets/icon/stop.png')
         let circlecls = this.state.isplay ? styles.musicpic : styles.musicpicnocircle
@@ -60,7 +63,9 @@ class MusicPlay extends React.Component {
             <div>
                 <div className={styles.musicbox}>
                     <br />
+                    <img src={require('../assets/icon/back.png')} alt="" className={styles.backpic} onClick={()=>{this.back()}}/>
                     <h2>{musicdetail.name}</h2>
+                    <h3>{singername}</h3>
                     <br />
                     <div className={styles.musicpicbox}>
                         <img src={icomurl} alt="" className={styles.iconpic} onClick={this.player} />
@@ -69,8 +74,8 @@ class MusicPlay extends React.Component {
                 </div>
                 <br />
                 <List renderHeader={() => '相似歌曲'} className="my-list">
-                    {simisonglist.map(item=> 
-                    <Item key={item.id} extra={item.artists[0].name} onClick={()=>{this.setmp3id(item.id)}}>{item.name}</Item>
+                    {simisonglist.map(item =>
+                        <Item key={item.id} extra={item.artists[0].name} onClick={() => { this.setmp3id(item.id) }}>{item.name}</Item>
                     )
                     }
                 </List>
@@ -108,7 +113,8 @@ function mapstate2props(state) {
         musicdetail: state.home.musicdetail,
         playdetail: state.home.playdetail,
         hotcomments: state.home.musicalbum,
-        simisonglist:state.home.simisonglist
+        simisonglist: state.home.simisonglist,
+        singername: state.home.singername
     }
 }
 export default connect(mapstate2props)(MusicPlay)
