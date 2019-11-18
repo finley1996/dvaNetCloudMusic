@@ -14,7 +14,7 @@ class CommentPlayList extends React.Component {
   }
   render() {
     // console.log("12歌单id",this.props.id)
-    console.log("getComment", this.props.hotComments)
+    // console.log("getComment", this.props.hotComments)
     let comments = this.props.hotComments
     return (
       <div>

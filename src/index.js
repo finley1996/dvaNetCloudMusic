@@ -12,6 +12,7 @@ app.model(require('./models/recommend').default);
 app.model(require('./models/playlist').default);
 app.model(require("./models/commentPlaylist").default);
 app.model(require('./models/playlistInfo').default);
+app.model(require('./models/catelist').default);
 
 // 4. Router
 app.router(require('./router').default);

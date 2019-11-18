@@ -33,6 +33,7 @@ class PlayList extends React.Component {
     let id = localStorage.getItem("listid")
     // console.log("歌单id", id)
     let songlist = this.props.plist;
+    // console.log("songlist- - - ", songlist)
     return (
       <div>
         <PlayListInfo id={id} />
