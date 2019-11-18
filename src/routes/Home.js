@@ -114,6 +114,34 @@ class Home extends React.Component {
                 <div style={{
                   width: '22px',
                   height: '22px',
+                  background: 'url(' + require('../assets/icon/diantaizhibo.png') + ') center center /  21px 21px no-repeat'
+                }}
+                />
+              }
+              selectedIcon={
+                <div style={{
+                  width: '22px',
+                  height: '22px',
+                  background: 'url(' + require('../assets/icon/diantaizhibo1.png') + ') center center /  21px 21px no-repeat'
+                }}
+                />
+              }
+              title="电台推荐"
+              key="dj"
+              selected={this.state.selectedTab === 'dj'}
+              onPress={() => {
+                this.setState({
+                  selectedTab: 'dj',
+                });
+              }}
+            >
+              {<Listview/>}
+            </TabBar.Item>
+            <TabBar.Item
+              icon={
+                <div style={{
+                  width: '22px',
+                  height: '22px',
                   background: 'url(' + require('../assets/icon/MV.png') + ') center center /  21px 21px no-repeat'
                 }}
                 />
