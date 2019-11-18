@@ -25,3 +25,11 @@ export function musicdetail(id){
 export function musicalbum(id){
   return request(pox+'/comment/music?id='+id)
 }
+// 获取精品mv
+export function mvlist(){
+  return request(pox+'/top/mv?limit=10')
+}
+// 获取相似音乐
+export function simisong(id){
+  return request(pox+'/simi/song?id='+id)
+}

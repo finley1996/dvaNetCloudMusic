@@ -9,6 +9,7 @@ function RouterConfig({ history }) {
       <Switch>
         <Route path="/" exact component={IndexPage} />
         <Route path="/musicplay" exact component={MusicPlay} />
+        
       </Switch>
     </Router>
   );

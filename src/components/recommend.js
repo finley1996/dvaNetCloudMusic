@@ -34,7 +34,6 @@ class Recommend extends React.Component {
         }))
     }
     render() {
-        console.log(this.props);
 
         const { playlist, musiclist } = this.props
         const data1 = playlist.map((item) => ({

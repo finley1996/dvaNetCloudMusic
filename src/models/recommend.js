@@ -9,7 +9,8 @@ export default {
         playdetail:'',
         musicid:'',
         musicdetail:{},
-        musicalbum:[] 
+        musicalbum:[],
+        simisonglist:[]
     },
     reducers:{
         setrecom(state,{payload}){
@@ -47,6 +48,11 @@ export default {
             _state.musicalbum = payload
             return _state
         },
+        setsimisong(state,{payload}){
+            let _state = JSON.parse(JSON.stringify(state))
+            _state.simisonglist = payload
+            return _state
+        }
     },
     effects:{
         *getrecomlist({payload},{call,put}){
@@ -85,7 +91,17 @@ export default {
                   type:'setmusicalbum',
                   payload:res.data.hotComments
               })
-          }
+          },
+          //获取相似歌曲
+          *getsimisong({payload},{call,put}){
+            const res = yield call(apis.simisong,payload)
+            console.log(res);
+            
+            yield put({
+                type:'setsimisong',
+                payload:res.data.songs
+            })
+        }
         
     }
 }

@@ -2,6 +2,7 @@ import { TabBar } from 'antd-mobile';
 import React from 'react';
 import { connect } from 'dva'
 import Recommend from '../components/recommend'
+import Listview from '../components/liveview'
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -107,6 +108,34 @@ class Home extends React.Component {
               }}
             >
               {3}
+            </TabBar.Item>
+            <TabBar.Item
+              icon={
+                <div style={{
+                  width: '22px',
+                  height: '22px',
+                  background: 'url(' + require('../assets/icon/search.png') + ') center center /  21px 21px no-repeat'
+                }}
+                />
+              }
+              selectedIcon={
+                <div style={{
+                  width: '22px',
+                  height: '22px',
+                  background: 'url(' + require('../assets/icon/search2.png') + ') center center /  21px 21px no-repeat'
+                }}
+                />
+              }
+              title="MV推荐"
+              key="mv"
+              selected={this.state.selectedTab === 'mv'}
+              onPress={() => {
+                this.setState({
+                  selectedTab: 'mv',
+                });
+              }}
+            >
+              {<Listview/>}
             </TabBar.Item>
           </TabBar>
         </div>

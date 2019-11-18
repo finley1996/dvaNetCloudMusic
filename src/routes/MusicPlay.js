@@ -3,6 +3,9 @@ import { connect } from 'dva'
 import styles from './Musicplay.css'
 import ListItem from 'antd-mobile/lib/list/ListItem';
 import { Card, WhiteSpace } from 'antd-mobile';
+import { List } from 'antd-mobile';
+const Item = List.Item;
+const Brief = Item.Brief;
 class MusicPlay extends React.Component {
     constructor() {
         super()
@@ -10,8 +13,8 @@ class MusicPlay extends React.Component {
             isplay: true
         }
     }
-    componentWillMount() {
-        const id = localStorage.getItem('songid')
+    changemp3=()=>{
+        let id = localStorage.getItem('songid')
         this.props.dispatch({
             type: 'home/getmusicurl',
             payload: id
@@ -24,13 +27,22 @@ class MusicPlay extends React.Component {
             type: 'home/getmusicalbum',
             payload: id
         })
-
+        this.props.dispatch({
+            type: 'home/getsimisong',
+            payload: id
+        })
+    }
+    componentWillMount() {
+       this.changemp3()
+    }
+    setmp3id=(id)=>{
+        localStorage.setItem('songid',id)
+        this.changemp3()
     }
     player = () => {
         this.setState({
             isplay: !this.state.isplay
         })
-        console.log(this.refs)
         if (this.state.isplay) {
             this.refs.player.pause()
         } else {
@@ -39,7 +51,7 @@ class MusicPlay extends React.Component {
     }
     render() {
         console.log(this.props);
-        const { musicdetail, playdetail, hotcomments } = this.props
+        const { musicdetail, playdetail, hotcomments,simisonglist } = this.props
             ;
         let icomurl = this.state.isplay ? require('../assets/icon/play.png') : require('../assets/icon/stop.png')
         let circlecls = this.state.isplay ? styles.musicpic : styles.musicpicnocircle
@@ -54,9 +66,14 @@ class MusicPlay extends React.Component {
                         <img src={icomurl} alt="" className={styles.iconpic} onClick={this.player} />
                         <img className={circlecls} src={musicdetail.picUrl} alt="" />
                     </div>
-
                 </div>
                 <br />
+                <List renderHeader={() => '相似歌曲'} className="my-list">
+                    {simisonglist.map(item=> 
+                    <Item key={item.id} extra={item.artists[0].name} onClick={()=>{this.setmp3id(item.id)}}>{item.name}</Item>
+                    )
+                    }
+                </List>
                 <br />
                 <div className={styles.commonbox}>
                     <h3>精彩评论</h3>
@@ -64,15 +81,15 @@ class MusicPlay extends React.Component {
                     <ul>
                         {hotcomments.map((item) => {
                             return (
-                                <div key={item.commentId}> 
+                                <div key={item.commentId}>
                                     <WhiteSpace size="lg" />
                                     <Card full>
                                         <Card.Header
                                             thumb={item.user.avatarUrl}
-                            extra={<span>{item.user.nickname}</span>}
+                                            extra={<span>{item.user.nickname}</span>}
                                         />
                                         <Card.Body>
-                            <div>{item.content}</div>
+                                            <div>{item.content}</div>
                                         </Card.Body>
                                     </Card>
                                 </div>
@@ -90,7 +107,8 @@ function mapstate2props(state) {
     return {
         musicdetail: state.home.musicdetail,
         playdetail: state.home.playdetail,
-        hotcomments: state.home.musicalbum
+        hotcomments: state.home.musicalbum,
+        simisonglist:state.home.simisonglist
     }
 }
 export default connect(mapstate2props)(MusicPlay)
