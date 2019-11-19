@@ -100,7 +100,7 @@ class MusicPlay extends React.Component {
                     <NavBar
                         mode="light"
                         icon={<Icon type="left" onClick={() => { this.back() }} />}
-                        onLeftClick={() => console.log('onLeftClick')}
+                        //onLeftClick={() => console.log('onLeftClick')}
                         rightContent={[
                             <Icon key="0" type="search"  onClick={() => { this.ssshow() }} />
                         ]

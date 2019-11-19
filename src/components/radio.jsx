@@ -54,7 +54,7 @@ class radio extends React.Component {
             </div>
         );
         return (
-            <WingBlank>
+            <div>
                 <Lunbotu></Lunbotu>
 
                 <div>
@@ -86,7 +86,7 @@ class radio extends React.Component {
                         </div>
                     </div>
                 </WingBlank>}
-            </WingBlank>
+            </div>
         );
     }
 }
