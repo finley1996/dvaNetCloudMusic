@@ -1,4 +1,3 @@
-
 export default {
 
   namespace: 'example',
@@ -23,3 +22,4 @@ export default {
   },
 
 };
+

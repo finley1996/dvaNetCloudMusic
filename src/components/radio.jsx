@@ -1,6 +1,7 @@
 import React from "react"
 import { Carousel, WingBlank } from 'antd-mobile';
 import { connect } from "dva"
+import { routerRedux } from "dva/router"
 import { Grid } from 'antd-mobile';
 import request from '../utils/request';
 import Lunbotu from "./lunbotu"
@@ -35,6 +36,14 @@ class radio extends React.Component {
     handle = (id) => {
         console.log(id);
         localStorage.setItem("rid", id)
+        this.props.dispatch(routerRedux.push({
+            pathname: '/djcatelist/djs/details'
+        }))
+    }
+    jump() {
+        this.props.dispatch(routerRedux.push({
+            pathname: '/djcatelist'
+        }))
     }
     render() {
         let array = this.state.rediolist[0]
@@ -59,7 +68,7 @@ class radio extends React.Component {
 
                 <div>
                     <ul className={styles.icon}>
-                        <li>
+                        <li onClick={() => this.jump()}>
                             <svg t="1574155847110" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7879" width="32" height="32"><path d="M320 512 192 512c-70.4 0-128 57.6-128 128l0 128c0 70.4 57.6 128 128 128l128 0c70.4 0 128-57.6 128-128l0-128C448 569.6 390.4 512 320 512zM384 768c0 35.2-28.8 64-64 64L192 832c-35.2 0-64-28.8-64-64l0-128c0-35.2 28.8-64 64-64l128 0c35.2 0 64 28.8 64 64L384 768zM768 64l-128 0C569.6 64 512 121.6 512 192l0 128c0 70.4 57.6 128 128 128l128 0c70.4 0 128-57.6 128-128L896 192C896 121.6 838.4 64 768 64zM832 320c0 35.2-28.8 64-64 64l-128 0C604.8 384 576 355.2 576 320L576 192c0-35.2 28.8-64 64-64l128 0c35.2 0 64 28.8 64 64L832 320zM768 512l-128 0c-70.4 0-128 57.6-128 128l0 128c0 70.4 57.6 128 128 128l128 0c70.4 0 128-57.6 128-128l0-128C896 569.6 838.4 512 768 512zM832 768c0 35.2-28.8 64-64 64l-128 0c-35.2 0-64-28.8-64-64l0-128c0-35.2 28.8-64 64-64l128 0c35.2 0 64 28.8 64 64L832 768zM320 64 192 64C121.6 64 64 121.6 64 192l0 128c0 70.4 57.6 128 128 128l128 0c70.4 0 128-57.6 128-128L448 192C448 121.6 390.4 64 320 64zM384 320c0 35.2-28.8 64-64 64L192 384C156.8 384 128 355.2 128 320L128 192c0-35.2 28.8-64 64-64l128 0c35.2 0 64 28.8 64 64L384 320z" p-id="7880" fill="#df5240"></path></svg>
                             <p>分类</p>
                         </li>

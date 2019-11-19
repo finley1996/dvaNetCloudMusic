@@ -1,10 +1,12 @@
 import { TabBar } from 'antd-mobile';
 import React from 'react';
 import { connect } from 'dva'
+
 import Recommend from '../components/recommend'
 import Listview from '../components/liveview'
 import SearchPage from "../components/searchPage"
 import RadioPage from "../components/radio"
+
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -14,7 +16,25 @@ class Home extends React.Component {
       fullScreen: true,
     };
   }
-  
+
+  componentDidMount() {
+    this.props.dispatch(
+      {
+        type: 'home/getrecomlist'
+      }
+    )
+  }
+  jump = () => {
+    // console.log(this.props, "home-detail")
+    let id = 1997190595;
+    // this.props.dispatch({
+    //   type: "playlist/getplist",
+    //   payload: id
+    // })
+    localStorage.setItem('listid', id)
+    this.props.history.push('/playlist')
+  }
+
   render() {
     return (
       <div>
@@ -109,7 +129,7 @@ class Home extends React.Component {
                 });
               }}
             >
-             <SearchPage></SearchPage>
+              <SearchPage></SearchPage>
             </TabBar.Item>
             <TabBar.Item
               icon={
@@ -137,7 +157,7 @@ class Home extends React.Component {
                 });
               }}
             >
-            <RadioPage></RadioPage>
+              <RadioPage></RadioPage>
             </TabBar.Item>
             <TabBar.Item
               icon={
@@ -165,7 +185,7 @@ class Home extends React.Component {
                 });
               }}
             >
-              {<Listview/>}
+              {<Listview />}
             </TabBar.Item>
           </TabBar>
         </div>
@@ -174,5 +194,10 @@ class Home extends React.Component {
   }
 }
 
+function mapstate2props(state) {
+  return {
+    playlist: state.home.recommend
+  }
+}
 
 export default connect()(Home)

@@ -58,3 +58,19 @@ export function mvlist(){
 export function simisong(id){
   return request(pox+'/simi/song?id='+id)
 }
+//获取歌单
+export function playlist(id) {
+  return request(pox + '/playlist/detail?id=' + id)
+}
+//获取歌单精彩评论
+export function commentPlaylist(id) {
+  return request(pox + '/comment/playlist?id=' + id)
+}
+//获取单个电台对应详情
+export function djDetails(rid) {
+  return request(pox + "/dj/detail?rid=" + rid)
+}
+//获取单个电台的对应节目
+export function djprogram(rid) {
+  return request(pox + "/dj/program?rid=" + rid)
+}

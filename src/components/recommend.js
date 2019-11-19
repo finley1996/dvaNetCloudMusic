@@ -33,10 +33,19 @@ class Recommend extends React.Component {
             pathname: '/musicplay'
         }))
     }
+    //跳转到歌单列表页面
+    jump(id) {
+        localStorage.setItem('listid', id)
+        // this.props.history.push('/playlist')
+        this.props.dispatch(routerRedux.push({
+            pathname: '/playlist'
+        }))
+    }
     render() {
 
         const { playlist, musiclist } = this.props
         const data1 = playlist.map((item) => ({
+            id: item.id,
             icon: item.coverImgUrl,
             dec:item.copywriter
           }));
@@ -60,7 +69,7 @@ class Recommend extends React.Component {
                     <Grid data={data1}
                         columnNum={3}
                         renderItem={dataItem => (
-                            <div style={{ padding: '1px' }}>
+                            <div style={{ padding: '1px' }}  onClick={() => this.jump(dataItem.id)}>
                                 <img src={dataItem.icon} style={{ width: '90px', height: '90px' }} alt="" />
                                 <div style={{ color: '#888', fontSize: '10px'}}>
                                 <span>{dataItem.dec}</span>
@@ -102,4 +111,5 @@ function mapstate2props(state) {
         musiclist: state.home.recommusic
     }
 }
+
 export default connect(mapstate2props)(Recommend)
