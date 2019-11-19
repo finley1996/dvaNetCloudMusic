@@ -1,7 +1,9 @@
 /* eslint no-dupe-keys: 0, no-mixed-operators: 0 */
 import React from "react"
 import { ListView, PullToRefresh } from 'antd-mobile';
-
+import request from '../utils/request';
+import { withRouter, routerRedux } from 'dva/router'
+import { connect } from 'dva'
 //这是个容器 包裹了listView
 function MyBody(props) {
   return (
@@ -28,17 +30,33 @@ class Demo extends React.Component {
       refreshing: true
     };
   }
+  //优化性能
+  shouldComponentUpdate(nextProps,nextState){
+    if(nextState.dataSource == this.state.dataSource){
+      return false
+    }else return true
+}
   //页面加载的时候 将数据传入dataSource
   componentDidMount() {
     this.setState({
       isLoading: true
     })
     //请求服务器参数 将获取到的新数据(数组类型) 传入到dataSource.cloneWithRows()
-    fetch("/api/top/mv")
+     fetch("/api/top/mv")
       .then(body => body.json())
-      .then(res => {
-        console.log(res.data);
-        
+      .then(async res => {
+        //console.log(res.data);
+        let arr =[]
+        for(let item of res.data){
+          arr.push(item['id'])
+        }
+        //console.log(arr)
+        let urlobj ={}
+        for(let index in arr){
+          let urlobj = await request('/api/mv/detail?mvid='+arr[index])
+          urlobj.urlmv = urlobj.data.data.brs['240']
+          Object.assign(res.data[index],urlobj)
+        }
         this.setState({
           dataSource: this.state.dataSource.cloneWithRows(res.data),
           isLoading: false
@@ -55,17 +73,35 @@ class Demo extends React.Component {
     //fetch是ES6里面原生的基于promise的HTTP语法
     fetch("/api/top/mv")
       .then(body => body.json())
-      .then(res => {
+      .then(async res => {
+        //console.log(res.data);
+        let arr =[]
+        for(let item of res.data){
+          arr.push(item['id'])
+        }
+        //console.log(arr)
+        let urlobj ={}
+        for(let index in arr){
+          let urlobj = await request('/api/mv/detail?mvid='+arr[index])
+          urlobj.urlmv = urlobj.data.data.brs['240']
+          Object.assign(res.data[index],urlobj)
+        }
         this.setState({
           dataSource: this.state.dataSource.cloneWithRows(res.data),
-          refreshing: false
+          isLoading: false
         })
       })
   }
+  jump2mv(id){
+    localStorage.setItem('mvid',id)
+    this.props.dispatch(routerRedux.push({
+      pathname: '/mvdetail'
+  }))
+  }
   render() {
-    const row = (rowData, sectionID, rowID) => {
-      
+    let  row =  (rowData, sectionID, rowID) => {
       //rowData就是数据源里面的每一项{}
+      
       return (
         //每一行内容的结构 可以根据自己的需求更改样式
         <div key={rowID} style={{ padding: '0 15px' }}>
@@ -80,7 +116,10 @@ class Demo extends React.Component {
           <div style={{ display: '-webkit-box', display: 'flex', padding: '15px 0' }}>
             <div style={{ lineHeight: 1 }}>
               <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>{rowData.name}</div>
-              <div><img src={rowData.cover} alt="" style={{width:'100%',height:'200px'}}/></div>
+              <div>
+              <video src={rowData.urlmv} controls style={{width:'100%',height:'200px'}} ></video>
+              <img src={rowData.cover} alt="图片加载失败啦！" style={{width:'100%',height:'200px'}} onClick={()=>{this.jump2mv(rowData.id)}}/>
+              </div>
             </div>
           </div>
         </div>
@@ -94,7 +133,7 @@ class Demo extends React.Component {
         dataSource={this.state.dataSource} //数据源
         renderHeader={() => <h2>MV推荐</h2>}//顶部渲染的结构
         renderFooter={() => (<div style={{ padding: 30, textAlign: 'center' }}>
-          {this.state.isLoading ? '正在加载...' : '加载完毕'}
+          {this.state.isLoading ? '正在加载...请稍后' : '加载完毕'}
         </div>)}//底部渲染的结构
         renderBodyComponent={() => <MyBody />}
         renderRow={row} //渲染listView里面的每一行的结构
@@ -103,7 +142,7 @@ class Demo extends React.Component {
           overflow: 'auto',
         }}
         pageSize={1}
-        onScroll={() => { console.log('scroll'); }}
+        //onScroll={() => { console.log('scroll'); }}
         pullToRefresh={<PullToRefresh
           refreshing={this.state.refreshing}//只要refreshing属性值为true那么就会有刷新动画
           onRefresh={this.onRefresh.bind(this)}//下拉的时候触发的事件
@@ -116,4 +155,4 @@ class Demo extends React.Component {
   }
 }
 
-export default Demo
+export default connect()(Demo)

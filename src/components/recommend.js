@@ -46,7 +46,7 @@ class Recommend extends React.Component {
                 <Lunbotu />
                 <br />
                 <div>
-                    <h3>推荐歌单</h3>
+                    <h3 style={{fontSize: '14px',color: '#888',boxSizing: 'border-box',padding: '15px 5px 9px 5px'}}>推荐歌单</h3>
                     {/* <ul className={styles.playlist}>
                         {playlist.map(item=>{
                             return (
@@ -71,7 +71,7 @@ class Recommend extends React.Component {
                 </div>
                 <br/>
                 <div>
-                    <h3>推荐音乐</h3>
+                    <h3 style={{fontSize: '14px',color: '#888',boxSizing: 'border-box',padding: '15px 5px 9px 5px'}}>推荐音乐</h3>
                     <ul>
                         {musiclist.map(item => {
                             return (
