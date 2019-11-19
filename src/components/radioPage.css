@@ -1,0 +1,9 @@
+.icon{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+}
+ul.icon>li>p{
+    text-align: center;
+    font-size: 16px;
+}

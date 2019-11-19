@@ -1,11 +1,14 @@
 import * as api from "../services/index"
+import {
+  array
+} from "prop-types";
 export default {
   namespace: "radio",
   state: {
     //电台推荐的数据
     radioList: [],
     //获取精品的数据
-    Products_recommended: []
+    Products_recommended: [],
   },
   reducers: {
     getDJList(state, payload) {
@@ -38,37 +41,35 @@ export default {
         obj.rcmdText = list[i].rcmdText;
         arr.push(obj)
       }
-      _state.Products_recommended=arr;
+      _state.Products_recommended = arr;
       return _state
     }
   },
+
   effects: {
     //获取电台
-    * getDJListAsync(payload, {put,call}) {
+    * getDJListAsync(payload, {
+      put,
+      call
+    }) {
       let res = yield call(api.getRadioList)
       yield put({
         type: "getDJList",
         payload: res.data.djRadios
       })
-
     },
     //获取精品
     * getProducts_recommendedAsync(payload, {
       put,
       call
     }) {
-
-
       let res = yield call(api.getProducts_recommended)
-      console.log(res.data.data.list);
       yield put({
         type: "getProducts_recommended",
         payload: res.data.data.list
       })
-
     },
 
+   
   }
-
-
 }

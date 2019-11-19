@@ -3,6 +3,8 @@ import React from 'react';
 import { connect } from 'dva'
 import Recommend from '../components/recommend'
 import Listview from '../components/liveview'
+import SearchPage from "../components/searchPage"
+import RadioPage from "../components/radio"
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -107,7 +109,7 @@ class Home extends React.Component {
                 });
               }}
             >
-              {3}
+             <SearchPage></SearchPage>
             </TabBar.Item>
             <TabBar.Item
               icon={
@@ -135,7 +137,7 @@ class Home extends React.Component {
                 });
               }}
             >
-              {<Listview/>}
+            <RadioPage></RadioPage>
             </TabBar.Item>
             <TabBar.Item
               icon={
