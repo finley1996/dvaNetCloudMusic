@@ -1,4 +1,3 @@
-import { effects } from "redux-saga";
 import * as apis from '../services'
 
 export default {

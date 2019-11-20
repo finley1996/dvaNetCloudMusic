@@ -12,13 +12,12 @@ function RouterConfig({ history }) {
   return (
     <Router history={history}>
       <Switch>
+        <Route path="/djcatelist/djs/details" component={DJDetails} />
+        <Route path="/djcatelist/djs" component={DJs} />
+        <Route path="/djcatelist" exact component={DJCateList} />
         <Route path="/" exact component={IndexPage} />
         <Route path="/musicplay" exact component={MusicPlay} />
         <Route path="/playlist" exact component={PlayList} />
-        <Route path="/djcatelist" exact component={DJCateList} />
-        <Route path="/djcatelist/djs/details"
-          component={DJDetails} />
-        <Route path="/djcatelist/djs" component={DJs} />
         <Route path="/mvdetail" exact component={Vidioplay} />
       </Switch>
     </Router>

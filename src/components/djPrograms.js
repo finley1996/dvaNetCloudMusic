@@ -14,7 +14,7 @@ class DJPrograms extends React.Component {
   }
   render() {
     // console.log("&&&&&&", this.props)
-    // console.log("###",this.props.djprograms)
+    console.log("###",this.props.djprograms)
     let djprograms = this.props.djprograms
     return (
       <div className={styles.progarm}>
