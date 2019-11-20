@@ -8,7 +8,9 @@ import DJs from "./components/djs"
 import DJDetails from "./components/djDetails"
 import Vidioplay from './routes/PlayVideo'
 import BoutiquePage from "./components/BoutiquePage"
-import RankingPage from "./components/RankinPage"
+import HotTopList from "./components/HotToplist"
+import Login from "./components/Login"
+
 function RouterConfig({ history }) {
   return (
     <Router history={history}>
@@ -21,8 +23,8 @@ function RouterConfig({ history }) {
         <Route path="/playlist" exact component={PlayList} />
         <Route path="/mvdetail" exact component={Vidioplay} />
         <Route path="/BoutiquePage" exact component={BoutiquePage} />
-        <Route path="/RankingPage" exact component={RankingPage} />
-        
+        <Route path="/top/list" exact component={HotTopList} />
+        <Route path="/login" exact component={Login} />
         <IndexPage />
       </Switch>
     </Router>

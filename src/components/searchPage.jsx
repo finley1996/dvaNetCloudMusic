@@ -53,10 +53,7 @@ class SearchBarExample extends React.Component {
         //2..将localStorage中的search_history取出并用数组接收
         let search_history_arr = JSON.parse(localStorage.getItem("search_history"));
         //3.将数据存入数组
-        console.log(search_history_arr);
-        
         search_history_arr.push(e)
-        search_history_arr=Array.from(new Set(search_history_arr))//历史记录去重
         //4.将存数据的数组（search_history_arr）重新转换成字符串并放入localStorage中
         localStorage.setItem("search_history", JSON.stringify(search_history_arr));
         this.setState({

@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.h3{
+     line-height: 40px;
+     text-align: center;
+     font-weight: 500;
+     letter-spacing: 6px;     
+     font-size: 20px;
+     
+}
+.ul{
+    overflow: hidden;
+}
+.li{
+    display: flex;
+    margin-bottom: 3px;
+    font-size: 15px;
+    overflow: hidden;
+    
+}
+.img{ 
+    width: 50%;
+    height: 50%;
+    border-radius:8%;
+    margin-left: 5px;
+    overflow: hidden;
+}
+.warpper{
+    /* display: inline-block; */
+    width: 50%;
+    overflow: hidden;
+    margin-left: 5px;
+    display: block;
+    text-overflow: ellipsis;
+    white-space: normal;
+    overflow: hidden;
+}
+.b{
+   font-weight: normal;
+   margin-top: 17%;
+}
+.i{
+    display:inline-block;
+    width: 75%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.hrr{
+    margin-top: 14%;
+}
+.span{
+    margin-right: 2px;
+}

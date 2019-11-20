@@ -1,12 +1,15 @@
 import dva from 'dva';
 import './index.css';
-import createHistory from 'history/createBrowserHistory';
+
 // 1. Initialize
 const app = dva();
 
 // 2. Plugins
-// app.use({});
+app.use({});
 
+// 3. Model
+app.model(require('./models/m-TopListHome').default);
+app.model(require('./models/m-Login').default);
 // 3. Model
 app.model(require('./models/recommend').default);
 app.model(require('./models/searchModel').default);
@@ -21,6 +24,7 @@ app.model(require('./models/djPrograms').default);
 
 // 4. Router
 app.router(require('./router').default);
+
 // 5. Start
 app.start('#root');
 

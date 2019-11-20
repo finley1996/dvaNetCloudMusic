@@ -1,0 +1,104 @@
+html,body{
+    width: 100%;
+    background: url;
+    /* background: url("../assets/img/zh.jpg" )no-repeat;
+    background-size:100% 100%;
+    position: relative; */
+}
+/* #root{
+    width: 100%;
+    height: 100%;
+} */
+/* .box{
+    width:70% ;
+    height:30% ;
+    border:1px solid #ccc;
+    display: flex;
+    flex-direction: column ;
+    justify-content: space-around;
+    border-radius: 10%;
+    overflow: hidden;
+} */
+/* .input{
+    background:white;
+    border: none;
+    width: 70%;
+    height: 55%;
+}
+.span{
+    color:black;
+    font-size: 18px;
+    margin: 0 6%;
+}
+.button{
+    width: 80%;
+    height: 10%;
+    display: block;
+    border: none;
+    margin-left: 10%;
+    background: rgba(116, 195, 247, 0.918);
+    letter-spacing: 14px;
+}
+.frist{
+    margin-top: 28%;
+    background: rgb(216, 216,216, 0.5);
+    border: none;
+    width: 70%;
+    height: 55%;
+}
+.images{
+    height: 10%;
+    width: 19%;
+    background-image: url("../assets/img/11.jfif");
+    background-size: cover;
+    position: relative;
+    top: 19%;
+    right: -42%;
+    border-radius: 50%;
+} */
+
+.container{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box{
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 40%;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+}
+.box div{
+    display: flex;
+    margin: 20px 0;
+    justify-content: center;
+    font-size: 16px;
+    height: 30px;
+    align-items: center;
+}
+.button{
+    display: block;
+    border: none;
+    background: rgba(116, 195, 247, 0.918);
+    letter-spacing: 14px;
+    width: 60%;
+    height: 10%;
+}
+.span{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    height: 100%;
+    font-size: 20px;
+    margin-right: 3%;
+}
+.input{
+    height: 100%;
+    border: none;
+}
