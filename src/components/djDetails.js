@@ -44,7 +44,6 @@ class DJDetails extends React.Component {
         <div>分类：<span>{details.category}</span></div>
         <div>{details.desc}</div>
       </div>
-      {details.commentDatas.length ? comment : null}
     </div>
 
 
@@ -64,11 +63,15 @@ class DJDetails extends React.Component {
         </div>
         <div className={styles.bottom}>
           <ul className={styles.bottom_tab}>
-            <li><b className={styles.selected}>详情</b></li>
+            <li><b>详情</b></li>
             <li><b>节目</b><span>{details.programCount}</span></li>
           </ul>
-          {detail}
+          {/* 电台内容简介 */}
+          {detail}  
+          {/* 节目列表 */}
           <DJPrograms/>
+          {/* 精彩评论 */}
+          {details.commentDatas.length ? comment : null} 
         </div>
       </div>
     )

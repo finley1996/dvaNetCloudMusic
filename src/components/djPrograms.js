@@ -18,8 +18,9 @@ class DJPrograms extends React.Component {
     let djprograms = this.props.djprograms
     return (
       <div className={styles.progarm}>
+        <h4 style={{lineHeight:"30px"}}>节目列表</h4>
         {djprograms.map((item, index) => <p key={index}>
-          <span>{index}</span> {item}
+          <span>{index+1}</span> {item}
         </p>)}
       </div>
     )

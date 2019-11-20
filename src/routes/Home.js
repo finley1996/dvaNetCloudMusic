@@ -6,7 +6,6 @@ import Recommend from '../components/recommend'
 import Listview from '../components/liveview'
 import SearchPage from "../components/searchPage"
 import RadioPage from "../components/radio"
-import { routerRedux } from 'dva/router';
 
 class Home extends React.Component {
   constructor(props) {
