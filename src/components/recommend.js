@@ -32,6 +32,7 @@ class Recommend extends React.Component {
         this.props.dispatch(routerRedux.push({
             pathname: '/musicplay'
         }))
+        
     }
     //跳转到歌单列表页面
     jump(id) {

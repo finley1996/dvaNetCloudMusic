@@ -170,7 +170,7 @@ class MusicPlay extends React.Component {
                     </ul>
                 </div>
 
-                <audio ref='player' src={playdetail} controls autoPlay className={styles.player}></audio>
+                <audio ref='player' src={playdetail} controls autoPlay loop className={styles.player}></audio>
             </div>
         )
     }
