@@ -158,7 +158,7 @@ class SearchBarExample extends React.Component {
         return (
             <div>
                 {/* //搜索 */}
-                <SearchBar placeholder="搜索歌曲,歌手,专辑" maxLength={8} onSubmit={this.search} onClear={this.cancel} value={this.state.value} onChange={this.onChange} className={styles.searchText} />
+                <SearchBar placeholder="搜索歌曲,歌手,专辑" maxLength={8} onSubmit={this.search} onClear={this.cancel} value={this.state.value} onChange={this.onChange} className={styles.searchText}  style={{borderRadius:"10px"}}/>
                 <WhiteSpace />
              
                 {/* 搜索结果列表 */}

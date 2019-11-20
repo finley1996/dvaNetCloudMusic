@@ -7,7 +7,7 @@ import DJCateList from "./components/catelist"
 import DJs from "./components/djs"
 import DJDetails from "./components/djDetails"
 import Vidioplay from './routes/PlayVideo'
-
+import BoutiquePage from "./components/BoutiquePage"
 function RouterConfig({ history }) {
   return (
     <Router history={history}>
@@ -20,6 +20,7 @@ function RouterConfig({ history }) {
           component={DJDetails} />
         <Route path="/djcatelist/djs" component={DJs} />
         <Route path="/mvdetail" exact component={Vidioplay} />
+        <Route path="/BoutiquePage" exact component={BoutiquePage} />
       </Switch>
     </Router>
   );
