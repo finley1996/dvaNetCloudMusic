@@ -37,7 +37,7 @@ class PlayVideo extends React.Component {
         let id = localStorage.getItem('mvid')
         fetch('/api/mv/detail?mvid=' + id).then(body => body.json()).then(
             res => {
-                // console.log(res)
+                console.log(res)
                 this.setState(
                     {
                         vidiodetail: res.data,
@@ -48,7 +48,7 @@ class PlayVideo extends React.Component {
         )
         fetch('/api/comment/mv?id=' + id).then(body => body.json()).then(
             res => {
-                // console.log(res.hotComments)
+                console.log(res.hotComments)
                 this.setState({
                     usercomments: res.hotComments
                 })
@@ -56,7 +56,7 @@ class PlayVideo extends React.Component {
         )
         fetch('/api/related/allvideo?id=' + id).then(body => body.json()).then(
             res => {
-                // console.log(res.data, "======1")
+                console.log(res.data, "======1")
                 this.setState({
                     data: res.data
                 })

@@ -10,7 +10,7 @@ class BoutiquePage extends React.Component {
         }
     }
     componentWillMount() {
-        fetch('/api/dj/paygift?limit=5').then(response => response.json())
+        fetch('/api/dj/paygift').then(response => response.json())
             .then(data => this.setState({
                 dataList: data.data.list,
             }))

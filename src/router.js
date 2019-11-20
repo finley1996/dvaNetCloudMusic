@@ -10,7 +10,7 @@ import Vidioplay from './routes/PlayVideo'
 import BoutiquePage from "./components/BoutiquePage"
 import HotTopList from "./components/HotToplist"
 import Login from "./components/Login"
-import RankingPage from "./components/RankinPage"
+
 function RouterConfig({ history }) {
   return (
     <Router history={history}>
@@ -25,7 +25,6 @@ function RouterConfig({ history }) {
         <Route path="/BoutiquePage" exact component={BoutiquePage} />
         <Route path="/top/list" exact component={HotTopList} />
         <Route path="/login" exact component={Login} />
-        <Route path="/RankingPage" exact component={RankingPage} />
         <IndexPage />
       </Switch>
     </Router>

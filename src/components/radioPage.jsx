@@ -17,7 +17,10 @@ class RadioPage extends React.Component {
         this.props.dispatch({
             type: "radio/getRadioTypeAsync"
         })
-        // console.log("componentWillMount");
+        console.log("componentWillMount");
+        
+
+
     }
     componentDidMount() {
         // simulate img loading
@@ -29,7 +32,7 @@ class RadioPage extends React.Component {
 
     }
     toRadioDetails=()=>{
-        // console.log("toRadioDetails");
+        console.log("toRadioDetails");
         
     }
     /* 电台推荐  http://106.12.79.128:666/dj/hot */

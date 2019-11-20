@@ -5,20 +5,20 @@
 .h3{
      line-height: 40px;
      text-align: center;
-     font-weight: 500;
+     font-weight: 300;
      letter-spacing: 6px;     
      font-size: 20px;
-     
+     color: red;
 }
 .ul{
     overflow: hidden;
-    list-style-type: none;
 }
 .li{
     display: flex;
     margin-bottom: 3px;
     font-size: 15px;
     overflow: hidden;
+    
 }
 .img{ 
     width: 50%;
