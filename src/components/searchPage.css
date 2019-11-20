@@ -76,7 +76,7 @@ hr {
 .historyList {
   /* display: flex;
   justify-content: space-between; */
- 
+  list-style: none;
   border-bottom: 1px solid #ccc;
   list-style-type: square;
 }

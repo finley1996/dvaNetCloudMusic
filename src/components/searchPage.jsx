@@ -41,26 +41,28 @@ class SearchBarExample extends React.Component {
         })
     }
     search = (e) => {
-        this.props.dispatch({
-            type: "search/getMusicAsync",
-            value: e
-        })
-        //1.检测当前站点是否有search_history
-        if (localStorage.getItem("search_history") == undefined) {
-            //如果没有，就为其设置站点，并初始化数组
-            localStorage.setItem("search_history", "[]")
+        if (e.replace(/^ +| +$/g,'')) {
+            this.props.dispatch({
+                type: "search/getMusicAsync",
+                value: e
+            })
+            //1.检测当前站点是否有search_history
+            if (localStorage.getItem("search_history") == undefined) {
+                //如果没有，就为其设置站点，并初始化数组
+                localStorage.setItem("search_history", "[]")
+            }
+            //2..将localStorage中的search_history取出并用数组接收
+            let search_history_arr = JSON.parse(localStorage.getItem("search_history"));
+            //3.将数据存入数组
+            search_history_arr.push(e)
+            search_history_arr=Array.from(new Set(search_history_arr))//历史记录去重
+            //4.将存数据的数组（search_history_arr）重新转换成字符串并放入localStorage中
+            localStorage.setItem("search_history", JSON.stringify(search_history_arr));
+            this.setState({
+                isShow: true,
+                arr:search_history_arr
+            })
         }
-        //2..将localStorage中的search_history取出并用数组接收
-        let search_history_arr = JSON.parse(localStorage.getItem("search_history"));
-        //3.将数据存入数组
-        search_history_arr.push(e)
-        search_history_arr=Array.from(new Set(search_history_arr))//历史记录去重
-        //4.将存数据的数组（search_history_arr）重新转换成字符串并放入localStorage中
-        localStorage.setItem("search_history", JSON.stringify(search_history_arr));
-        this.setState({
-            isShow: true,
-            arr:search_history_arr
-        })
     }
     cancel = () => {
         this.setState({
@@ -159,7 +161,7 @@ class SearchBarExample extends React.Component {
         return (
             <div>
                 {/* //搜索 */}
-                <SearchBar placeholder="搜索歌曲,歌手,专辑" maxLength={8} onSubmit={this.search} onClear={this.cancel} value={this.state.value} onChange={this.onChange} className={styles.searchText}  style={{borderRadius:"10px"}}/>
+                <SearchBar placeholder="搜索歌曲,歌手,专辑" maxLength={8} onSubmit={this.search} onClear={this.cancel} value={this.state.value.replace(/^ +| +$/g,'')} onChange={this.onChange} className={styles.searchText}  style={{borderRadius:"10px"}}/>
                 <WhiteSpace />
              
                 {/* 搜索结果列表 */}
