@@ -6,6 +6,7 @@ import Recommend from '../components/recommend'
 import Listview from '../components/liveview'
 import SearchPage from "../components/searchPage"
 import RadioPage from "../components/radio"
+import searchPage from '../components/searchPage';
 
 class Home extends React.Component {
   constructor(props) {
@@ -132,13 +133,13 @@ componentWillMount(){
 
               selected={this.state.selectedTab === '/search'}
               onPress={() => {
-                this.props.history.push("search")
+                //this.props.history.push("search")
                 this.setState({
                   selectedTab: '/search',
                 });
               }}
             >
-              <Route path="/search"  exact component={SearchPage} />
+              <SearchPage/>
             </TabBar.Item>
             <TabBar.Item
               icon={
