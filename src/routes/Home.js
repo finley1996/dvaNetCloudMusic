@@ -1,7 +1,7 @@
 import { TabBar } from 'antd-mobile';
 import React from 'react';
 import { connect } from 'dva'
-import { Router, Route, Switch,withRouter } from 'dva/router';
+import { Router, Route, Switch, withRouter ,routerRedux } from 'dva/router';
 import Recommend from '../components/recommend'
 import Listview from '../components/liveview'
 import SearchPage from "../components/searchPage"
@@ -16,7 +16,11 @@ class Home extends React.Component {
       fullScreen: true,
     };
   }
-
+componentWillMount(){
+  this.setState({
+    selectedTab:this.props.history.location.pathname
+  })
+}
   componentDidMount() {
     this.props.dispatch(
       {
@@ -36,8 +40,6 @@ class Home extends React.Component {
   }
 
   render() {
-    console.log(this.props)
-    
     return (
       <div>
         <div style={this.state.fullScreen ? { position: 'fixed', height: '100%', width: '100%', top: 0 } : { height: 400 }}>
@@ -64,17 +66,16 @@ class Home extends React.Component {
               }}
               />
               }
-              selected={this.state.selectedTab === '/recommend'}
+              selected={this.state.selectedTab === '/'}
               onPress={() => {
-                //  this.props.history.push("recommend")
+                 this.props.history.push("/")
                 this.setState({
-                  selectedTab: '/recommend',
+                  selectedTab: '/',
                 });
               }}
               data-seed="logId"
             >
-              {/* <Route path="/recommend" exact component={Recommend} /> */}
-              <Recommend />
+              <Route path="/" exact component={Recommend} />
             </TabBar.Item>
             <TabBar.Item
               icon={
@@ -98,14 +99,16 @@ class Home extends React.Component {
               // badge={'new'}
               selected={this.state.selectedTab === '/top'}
               onPress={() => {
-                //  this.props.history.push("top")
+                //  this.props.history.push("recommend")
+                this.props.dispatch(routerRedux.push({
+                  pathname: '/recommend'
+                }))
                 this.setState({
                   selectedTab: '/top',
                 });
               }}
               data-seed="logId1"
             >
-              {2}
             </TabBar.Item>
             <TabBar.Item
               icon={
@@ -129,14 +132,13 @@ class Home extends React.Component {
 
               selected={this.state.selectedTab === '/search'}
               onPress={() => {
-                // this.props.history.push("search")
+                this.props.history.push("search")
                 this.setState({
                   selectedTab: '/search',
                 });
               }}
             >
-              {/* <Route path="/search"  exact component={SearchPage} /> */}
-              <SearchPage />
+              <Route path="/search"  exact component={SearchPage} />
             </TabBar.Item>
             <TabBar.Item
               icon={
@@ -159,14 +161,13 @@ class Home extends React.Component {
               key="dj"
               selected={this.state.selectedTab === '/dj'}
               onPress={() => {
-                //  this.props.history.push("dj")
+                this.props.history.push("dj")
                 this.setState({
                   selectedTab: '/dj',
                 });
               }}
             >
-              {/* <Route path="/dj"  exact component={RadioPage} /> */}
-              <RadioPage />
+              <Route path="/dj"  exact component={RadioPage} />
             </TabBar.Item>
             <TabBar.Item
               icon={
@@ -189,14 +190,14 @@ class Home extends React.Component {
               key="mv"
               selected={this.state.selectedTab === '/mv'}
               onPress={() => {
-                //  this.props.history.push("mv")
+                
+                 this.props.history.push("mv")
                 this.setState({
                   selectedTab: '/mv',
                 });
               }}
             >
-              <Listview />
-              {/* <Route path="/mv" exact component={Listview} /> */}
+              <Route path="/mv" exact component={Listview} />
             </TabBar.Item>
           </TabBar>
         </div>
@@ -206,4 +207,4 @@ class Home extends React.Component {
 }
 
 
-export default connect()(Home)
+export default withRouter(connect()(Home)) 

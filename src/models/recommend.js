@@ -91,7 +91,7 @@ export default {
           },
           *getmusicdetail({payload},{call,put}){
               const res = yield call(apis.musicdetail,payload)
-              console.log(res);
+            //   console.log(res);
               
               yield put({
                   type:'setmusicdetill',
@@ -118,7 +118,7 @@ export default {
           //获取相似歌曲
           *getsimisong({payload},{call,put}){
             const res = yield call(apis.simisong,payload)
-            console.log(res);
+            // console.log(res);
             
             yield put({
                 type:'setsimisong',
