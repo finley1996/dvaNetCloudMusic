@@ -29,7 +29,7 @@ class SearchBarExample extends React.Component {
             localStorage.setItem("search_history", "[]")
         }
         let history_arr = JSON.parse(localStorage.getItem("search_history"));
-        console.log(history_arr);
+        // console.log(history_arr);
         this.setState({
             arr: history_arr,
         })
@@ -79,14 +79,14 @@ class SearchBarExample extends React.Component {
         })
     }
     playBtn = (id) => {
-        console.log(id);
+        // console.log(id);
         window.localStorage.setItem("songid", id)
         this.props.dispatch(routerRedux.push({
             pathname: '/musicplay'
         }))
     }
     delHistoryList = (index) => {
-        console.log(index);
+        // console.log(index);
         let search_history_arr = JSON.parse(localStorage.getItem("search_history"));
         search_history_arr.splice(index, 1)
         localStorage.setItem("search_history", JSON.stringify(search_history_arr));

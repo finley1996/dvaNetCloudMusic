@@ -87,7 +87,7 @@ class MusicPlay extends React.Component {
     }
     render() {
     
-        console.log(this.props);
+        // console.log(this.props);
         const { musicdetail, playdetail, hotcomments, simisonglist, singername,songname } = this.props
             ;
         let icomurl = this.state.isplay ? require('../assets/icon/play.png') : require('../assets/icon/stop.png')

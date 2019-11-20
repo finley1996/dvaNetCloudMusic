@@ -72,7 +72,7 @@ class TopListHome extends React.Component {
         const arr = this.props.toptotallist.tophome
         return (
             <div>
-                <ul>
+                <ul className={topStyle.ul}>
                     <h3 className={topStyle.h3}>官方榜单</h3>
                     {arr.map((item, index) =>
                         <li key={index} onClick={()=>{this.handel(item.id)}}  className={topStyle.li}>

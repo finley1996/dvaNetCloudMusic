@@ -12,13 +12,13 @@
 }
 .ul{
     overflow: hidden;
+    list-style-type: none;
 }
 .li{
     display: flex;
     margin-bottom: 3px;
     font-size: 15px;
     overflow: hidden;
-    
 }
 .img{ 
     width: 50%;

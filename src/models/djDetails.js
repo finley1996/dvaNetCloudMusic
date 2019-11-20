@@ -16,7 +16,7 @@ export default {
   },
   reducers: {
     setdjdetails(state, { payload }) {
-      console.log("djdetails_payload---", payload)
+      // console.log("djdetails_payload---", payload)
       let _state = JSON.parse(JSON.stringify(state))
       // console.log("stae@@@@", state)
       _state.id = payload.id
@@ -52,7 +52,7 @@ export default {
   effects: {
     *getdjdetails({ payload }, { call, put }) {
       const res = yield call(apis.djDetails, payload)
-      console.log("djdetails_res---", res)
+      // console.log("djdetails_res---", res)
       yield put({
         type: "setdjdetails",
         payload: res.data.djRadio
