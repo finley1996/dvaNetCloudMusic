@@ -5,7 +5,7 @@ export default {
   state: [],
   reducers: {
     setdjprograms(state, { payload }) {
-      // console.log("djprograms__payload",payload)
+      // console.log("djprograms__payload",payload[0])
       let _state = JSON.parse(JSON.stringify(state))
       let arr = []
       for (let i = 0; i < payload.length; i++) {

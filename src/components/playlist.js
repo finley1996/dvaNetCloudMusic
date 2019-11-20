@@ -52,7 +52,6 @@ class PlayList extends React.Component {
             </div>
           </a>)}
         </div>
-        <h3 className={styles.subtitle}>精彩评论</h3>
         <CommentPlayList id={id} />
       </div>
     )

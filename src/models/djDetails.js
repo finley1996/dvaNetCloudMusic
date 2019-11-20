@@ -16,7 +16,7 @@ export default {
   },
   reducers: {
     setdjdetails(state, { payload }) {
-      // console.log("djdetails_payload---", payload)
+      console.log("djdetails_payload---", payload)
       let _state = JSON.parse(JSON.stringify(state))
       // console.log("stae@@@@", state)
       _state.id = payload.id

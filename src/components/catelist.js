@@ -14,7 +14,7 @@ class DJCateList extends React.Component {
   }
   jump(type) {
     localStorage.setItem("type", type)
-    console.log("this---", this.props)
+    // console.log("this---", this.props)
     // this.props.type = type
     this.props.dispatch(routerRedux.push({
       pathname: '/djcatelist/djs'
@@ -24,7 +24,7 @@ class DJCateList extends React.Component {
     this.props.dispatch(routerRedux.go(-1))
   }
   render() {
-    console.log("parops", this.props)
+    // console.log("parops", this.props)
     let catelist = this.props.catelist
     // console.log("catelsit", catelist)
     let hot = catelist.slice(0, 6)
