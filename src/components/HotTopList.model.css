@@ -1,4 +1,4 @@
- *{
+*{
     margin: 0;
     padding: 0;
 }
@@ -20,19 +20,9 @@ html,body{
    list-style: none;
    font-size: 20px;
    position: relative;
-   /* margin: 3% ; */
-   -webkit-transition: width 1s, height 1s, -webkit-transform 1s; /* For Safari 3.1 to 6.0 */
-   transition: width 1s, height 1s, transform 1s;
-   ;
 }
 .li:nth-of-type(even){
     background:rgb(216, 216,216, 0.5);
-}
-.li:hover{
-    width: 200px;
-    height: 200px;
-    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
-    transform: rotate(180deg);
 }
 .title{
     line-height: 20px;
@@ -48,7 +38,6 @@ html,body{
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    /* color: white */
 }
 .i{
     font-size: 10px;
@@ -58,7 +47,16 @@ html,body{
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    /* color: white */
+}
+.ii{
+    margin-left: 12%;
+    font-size: 10px;
+    line-height: 13px;
+    display:inline-block;
+    width: 13%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 .sq{
     width: 18px;
@@ -98,12 +96,9 @@ html,body{
      text-align: center;
     font-size: 14px;
     padding: 10px;
-    /*line-height: 60psx;
-    /* margin-right: 30px; */ 
 }
 .back {
     display: block;
-    /* width: 40px; */
     height: 40px;
     line-height: 40px;
     text-align: center;
@@ -114,6 +109,3 @@ html,body{
     top:1%;
     left: 6%;
   }
-
-
-

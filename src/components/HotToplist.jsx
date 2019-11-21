@@ -29,17 +29,17 @@ class HotToplist extends React.Component {
         return (
             <div className={listStyle.box}>
                 <img src={imgUrl} className={listStyle.img}/>
-                <span className={listStyle.back} onClick={() => this.back()}>«</span>
+                <span className={listStyle.back} onClick={() => this.back()}>?</span>
               <ul className={listStyle.ul}>
                   {list.map((item,index)=>{ 
                       if(index>30){return}
                       return <li key={index} className={listStyle.li} onClick={()=>{this.handel(item.id)}}> 
                          <b className={listStyle.b}>{index+1<10?("0"+(index+1)):(index+1)}</b>
                          <span className={listStyle.title}>{item.name}</span><br/>
-                         <span className={listStyle.sq}>SQ</span>
-                         <i className={listStyle.i}>{item.ar[0].name}-</i>
+                         {/* <span className={listStyle.sq}>SQ</span> */}
+                         <i className={listStyle.i,listStyle.ii}>{item.ar[0].name}-</i>
                          <i className={listStyle.i}>{item.al.name}</i>
-                         <button className={listStyle.btn} >▷</button>
+                         <button className={listStyle.btn} >?</button>
                   </li>}
                   )}      
               </ul>
@@ -58,4 +58,3 @@ const maptoprops = state => {
 
 
 export default connect(maptoprops)(HotToplist)
-

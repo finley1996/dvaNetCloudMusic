@@ -145,9 +145,7 @@ class SearchBarExample extends React.Component {
                             >{item.musicName}</p>
                         </div>
                         <div>
-                            <p className={styles.singer}
-                            >
-                                <span>SQ</span>
+                            <p className={styles.singer}>
                                 {item.singer}
                             </p>
                         </div>
