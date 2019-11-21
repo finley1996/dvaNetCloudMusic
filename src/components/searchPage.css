@@ -48,6 +48,7 @@ p {
 .musicName {
   color: #507daf;
   margin-bottom: 5px;
+  overflow-x:hidden;
 }
 
 .singer {
@@ -107,4 +108,10 @@ hr {
 .history_clock_icon{
   line-height: 34px;
   margin: 0 5px 0 0 ;
+}
+.associate{
+  color: #507daf;
+  font: 16px/16px "";
+  text-align: left;
+  margin: 20px 10px;
 }

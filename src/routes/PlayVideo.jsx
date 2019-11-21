@@ -50,7 +50,6 @@ class PlayVideo extends React.Component {
                     alert('该视频资源不存在啦！请更换视频播放')
                     return false
                 }
-               
             }
         )
         fetch('/api/comment/mv?id=' + id).then(body => body.json()).then(
