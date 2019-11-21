@@ -29,6 +29,11 @@ export default {
       let _state = JSON.parse(JSON.stringify(state));
       _state.hotList = payload.data.hotList.hots
       return _state
+    },
+    clearSearList(state,payload){
+      let _state = JSON.parse(JSON.stringify(state));
+      _state.musicList=[];
+      return _state;
     }
   },
   effects: {
