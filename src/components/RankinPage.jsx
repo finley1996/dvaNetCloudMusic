@@ -4,7 +4,7 @@ import styles from "../components/BoutiquePage.css"
 import { connect } from "dva"
 class RankingPage extends React.Component{
     exit=()=>{
-        console.log("退出");
+        // console.log("退出");
         this.props.dispatch(routerRedux.go(-1))
     }
     render(){
