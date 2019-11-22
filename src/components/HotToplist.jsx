@@ -29,7 +29,7 @@ class HotToplist extends React.Component {
         return (
             <div className={listStyle.box}>
                 <img src={imgUrl} className={listStyle.img}/>
-                <span className={listStyle.back} onClick={() => this.back()}>?</span>
+                <span className={listStyle.back} onClick={() => this.back()}>{"<<"}</span>
               <ul className={listStyle.ul}>
                   {list.map((item,index)=>{ 
                       if(index>30){return}
@@ -39,7 +39,7 @@ class HotToplist extends React.Component {
                          {/* <span className={listStyle.sq}>SQ</span> */}
                          <i className={listStyle.i,listStyle.ii}>{item.ar[0].name}-</i>
                          <i className={listStyle.i}>{item.al.name}</i>
-                         <button className={listStyle.btn} >?</button>
+                         <button className={listStyle.btn} >></button>
                   </li>}
                   )}      
               </ul>

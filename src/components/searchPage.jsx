@@ -44,7 +44,7 @@ class SearchBarExample extends React.Component {
         if (e.replace(/^ +| +$/g,'')) {
             this.props.dispatch({
                 type: "search/getMusicAsync",
-                value: e
+                value: e.trim()
             })
             //1.检测当前站点是否有search_history
             if (localStorage.getItem("search_history") == undefined) {
@@ -162,7 +162,7 @@ class SearchBarExample extends React.Component {
         return (
             <div>
                 {/* //搜索 */}
-                <SearchBar placeholder="搜索歌曲,歌手,专辑" maxLength={8} onSubmit={this.search} onClear={()=>{this.cancel()}} value={this.state.value.replace(/^ +| +$/g,'')} onChange={this.onChange} className={styles.searchText}  style={{borderRadius:"10px"}}/>
+                <SearchBar placeholder="搜索歌曲,歌手,专辑" maxLength={20} onSubmit={this.search} onClear={()=>{this.cancel()}} value={this.state.value} onChange={this.onChange} className={styles.searchText}  style={{borderRadius:"10px"}}/>
                 <WhiteSpace  />
               {/*   {this.state.value?<p className={styles.associate} onClick={this.search}>搜索"{this.state.value}"</p>:""} */}
                 {/* 搜索结果列表 */}
