@@ -1,15 +1,15 @@
-import * as apis from '../services'
+import * as apis from "../services";
 
 export default {
-  namespace: 'commentpl',
+  namespace: "commentpl",
   state: [],
   reducers: {
     setcommentpl(state, { payload }) {
       // console.log(payload.hotComments, "comment--")
-      state = payload.hotComments
+      state = payload.hotComments;
       // console.log("-----------",state)
-      return state
-    }
+      return state;
+    },
   },
   effects: {
     *getcommentpl({ payload }, { call, put }) {
@@ -17,8 +17,8 @@ export default {
       // console.log("res", res)
       yield put({
         type: "setcommentpl",
-        payload: res.data
-      })
-    }
-  }
-}
+        payload: res.data,
+      });
+    },
+  },
+};
